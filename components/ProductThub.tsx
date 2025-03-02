@@ -16,6 +16,7 @@ export default function ProductThub({ product }: { product: Product }) {
             <div className='relative aspect-square w-full h-full overflow-hidden'>
                 {product.image && (
                     <Image
+                        className="object-contain transition-transform duration-300 group-hover:scale-105"
                         src={imageUrl(product.image).url()}
                         alt={product.name || "product image"}
                         fill

@@ -10,7 +10,6 @@ export default async function Home() {
   return (
     <div>
       <EidAlFitrBanner />
-      <h1>Wellcome to the store </h1>
       <div className="flex flex-col items-center justify-top min-h-screen bg-gray-100 p-2"> 
         <ProductView products={products} categories={categories}/>
       </div>
