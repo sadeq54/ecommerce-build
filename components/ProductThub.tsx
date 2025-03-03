@@ -5,6 +5,7 @@ import Link from 'next/link'
 import React from 'react'
 
 export default function ProductThub({ product }: { product: Product }) {
+    
     const isOutOfStock = product.stock != null && product.stock <= 0
 
     return (
@@ -43,7 +44,7 @@ export default function ProductThub({ product }: { product: Product }) {
                         .join(" ") || "No description available"}
                 </p>
                 <p className='mt-2 text-lg font-bold text-gray-800'>
-                    {product.price?.toFixed(2)}
+                    ${product.price?.toFixed(2)}
                 </p>
             </div>
         </Link>
