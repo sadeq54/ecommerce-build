@@ -37,7 +37,7 @@ export default function AddToBasket({ product, disabled }: addToBasketButtonProp
                 "bg-gray-200 hover:bg-gray-300"
             }`}
             >
-            <span className={`text-xl font-bold  ${
+            <span className={`text-xl font-bold items-center justify-center  ${
                 itemCount === 0 ? "text-gray-400":
                 "text-gray-600"
             }`}>
@@ -55,7 +55,7 @@ export default function AddToBasket({ product, disabled }: addToBasketButtonProp
                 "bg-blue-500 hover:bg-blue-600"
             }`}
             >
-            <span className={`text-xl font-bold text-white`}>
+            <span className={`text-xl font-bold text-white flex items-center justify-center`}>
                 +
             </span>
             </button>

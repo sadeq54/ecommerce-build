@@ -5,10 +5,13 @@ import Link from "next/link"
 import Form from "next/form"
 import { PackageIcon, TrolleyIcon } from "@sanity/icons"
 import { useEffect, useState } from "react"
+import { useBasketStore } from "@/store"
 
 export default function Header() {
     const { user } = useUser()
     const [isClient, setIsClient] = useState(false)
+    const allItemsCount = useBasketStore((state)=> state.items.reduce((total , item)=> total + item.quantity , 0))  // get all the items in the basket
+
 
     useEffect(() => {
         setIsClient(true)
@@ -50,6 +53,10 @@ export default function Header() {
                         href={'/basket'}
                     >
                         <TrolleyIcon className="w-6 h-6" />
+
+                        <span className="absolute -top-2 -right-2 bg-red-500 rounded-full text-white w-5 h-5 flex items-center justify-center text-xs" >
+                            {allItemsCount}
+                        </span>
                         <span>
                             My Basket
                         </span>
