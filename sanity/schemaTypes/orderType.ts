@@ -9,7 +9,7 @@ export const orderType = defineType({
     fields: [
         defineField({
             name: "orderNumber",
-            type: "number",
+            type: "string",
             title: "Order Number",
             validation: Rule => Rule.required(),
 

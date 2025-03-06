@@ -1,3 +1,5 @@
+"use server"
+
 import { imageUrl } from "@/lib/imageUrl";
 import stripe from "@/lib/stripe";
 import { BasketItem } from "@/store";
@@ -45,20 +47,20 @@ export async function createCheckoutSession(items: GroupedBasketItem[], metadata
             metadata,
             mode: "payment",
             allow_promotion_codes: true,
-            success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/success?session_id={CHECKOUT_SESSION_ID}&orderNumber=${metadata.orderNumer}`,
-            cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/basket`,
+            success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}&orderNumber=${metadata.orderNumer}`,
+            cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/basket`,
             line_items: items.map(item => ({
                 price_data: {
                     currency: "gbp",
                     unit_amount: Math.round(item.product.price! * 100),  // 1 JD = 100 cents convert to the smallest unit
                     product_data: {
                         name: item.product.name || "Unnamed Product",
-                        description:`Product ID: ${item.product._id}`,
-                        metadata:{
-                            id:item.product._id
+                        description: `Product ID: ${item.product._id}`,
+                        metadata: {
+                            id: item.product._id
                         },
-                        images:item.product.image ?
-                        [imageUrl(item.product.image).url()]: undefined
+                        images: item.product.image ?
+                            [imageUrl(item.product.image).url()] : undefined
 
                     }
                 },

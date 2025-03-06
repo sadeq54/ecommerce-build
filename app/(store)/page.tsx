@@ -3,9 +3,13 @@ import ProductView from "@/components/ProductView";
 import { getAllCategories } from "@/sanity/lib/products/getAllCategories";
 import { getAllPrducts } from "@/sanity/lib/products/getAllProducts";
 
+
+
 export default async function Home() {
   const products = await getAllPrducts()
   const categories = await getAllCategories()
+
+
 
   return (
     <div>

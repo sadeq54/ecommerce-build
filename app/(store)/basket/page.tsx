@@ -30,7 +30,7 @@ export default function BasketPage() {
                 customerName: user?.fullName ?? "Unknown",
                 custiomerEmail: user?.emailAddresses[0].emailAddress ?? "Unknown",
                 clerkUserId: user!.id,
-            };
+            }; 
 
             const checkoutUrl = await createCheckoutSession(allItems , metadata)
             if (checkoutUrl){
